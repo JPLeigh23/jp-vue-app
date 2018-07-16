@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>My Vue App</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  </head>
+  <body>
+    <div id="app">
+      <h2>Vue.js Example</h2>
+      <hr>
+      <div>
+        <ul>
+          <li v-for="f in frameworks">
+            <span class="currentTitle">{{f.name}}</span> has <span class="currentWinner">{{f.votes}}</span> votes
+            <button v-on:click="voteFor(f)">Vote</button>
+            <button href="#" v-if="editMode" v-on:click="remove(f)">Delete</button>
+          </li>
+        </ul>
+      </div>
+      <hr>
+      <div class="container2">
+        <h3>Current Winner(s): <span class="currentWinner">{{winnerString}}</span></h3>
+      </div>
+      <div class="editButton">
+        <button v-on:click="toggleEditMode">{{ editMode ? 'Done' : 'Edit' }}</button>
+        <input placeholder="Add new" v-if="editMode" v-on:keyup.enter="addNew">
+      </div>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>
